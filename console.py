@@ -17,8 +17,15 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """EOF command to  exit the program"""
         return True
-    def do_help(self, line):
-        """help command"""
+    
+    def help_quit(self):
+        """print help message to quit"""
+        print("Quit command to exit the program")
+
+    def help_EOF(self):
+        """print help message to EOF"""
+        print("EOF command to exit th program")
+
 
 
 if __name__ == '__main__':
