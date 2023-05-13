@@ -98,19 +98,21 @@ class HBNBCommand(cmd.Cmd):
             del obdic["{}.{}".format(argslen[0], argslen[1])]
             storage.save()
 
-    def do_all(self, args):
-        """print string representation of all instance based on class"""
-        argslen = parse(args)
-        if len(argslen) > 0 and argslen[0] not in HBNBCommand.__classes:
+    def do_all(self, arg):
+        """Usage: all or all <class> or <class>.all()
+        Display string representations of all instances of a given class.
+        If no class is specified, displays all instantiated objects."""
+        argl = parse(arg)
+        if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
-            oblen = []
+            objl = []
             for obj in storage.all().values():
-                if len(argslen) > 0 and argslen[0] == obj.__class__.__name__:
-                    oblen.append(obj.__str__())
-                elif len(argslen) == 0:
-                    oblen.append(obj.__str__())
-            print(oblen)
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    objl.append(obj.__str__())
+                elif len(argl) == 0:
+                    objl.append(obj.__str__())
+            print(objl)
 
     def do_update(self, args):
         """A defination to update an instance based on class name & id"""
