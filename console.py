@@ -4,7 +4,6 @@ HBNB Console Models
 """
 
 import cmd
-import sys
 import re
 from shlex import split
 from models import storage
