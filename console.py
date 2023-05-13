@@ -12,6 +12,7 @@ from models.base_model import BaseModel
 
 
 def parse(arg):
+    """To difine Parse"""
     curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
