@@ -11,20 +11,20 @@ from models import storage
 from models.base_model import BaseModel
 
 
-def parse(args):
+def parse(arg):
     """To difine Parse"""
-    curly_braces = re.search(r"\{(.*?)\}", args)
-    brackets = re.search(r"\[(.*?)\]", args)
+    curly_braces = re.search(r"\{(.*?)\}", arg)
+    brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
         if brackets is None:
-            return [i.strip(",") for i in split(args)]
+            return [i.strip(",") for i in split(arg)]
         else:
-            lexer = split(args[:brackets.span()[0]])
+            lexer = split(arg[:brackets.span()[0]])
             retl = [i.strip(",") for i in lexer]
             retl.append(brackets.group())
             return retl
     else:
-        lexer = split(args[:curly_braces.span()[0]])
+        lexer = split(arg[:curly_braces.span()[0]])
         retl = [i.strip(",") for i in lexer]
         retl.append(curly_braces.group())
         return retl
@@ -77,9 +77,9 @@ class HBNBCommand(cmd.Cmd):
         """print help message to EOF"""
         print("EOF command to exit the program")
 
-    def do_create(self, args):
+    def do_create(self, arg):
         """Create instance BaseModel, saves to JSON file & prints id."""
-        argslength = parse(args)
+        argslength = parse(arg)
         if len(argslength) == 0:
             print("** class name missing **")
         elif argslength[0] not in HBNBCommand.__classes:
@@ -88,9 +88,9 @@ class HBNBCommand(cmd.Cmd):
             print(eval(argslength[0])().id)
             storage.save()
 
-    def do_show(self, args):
+    def do_show(self, arg):
         """to show the string representation of a class instance"""
-        argslen = parse(args)
+        argslen = parse(arg)
         obdic = storage.all()
         if len(arglen) == 0:
             print("** class name missing **")
@@ -103,9 +103,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(obdic["{}.{}".format(argslen[0], argslen[1])])
 
-    def do_destroy(self, args):
+    def do_destroy(self, arg):
         """to delete an instance based on the class name and id"""
-        argslen = parse(args)
+        argslen = parse(arg)
         obdic = storage.all()
         if len(argslen) == 0:
             print("** class name missing **")
@@ -135,9 +135,9 @@ class HBNBCommand(cmd.Cmd):
                     objl.append(obj.__str__())
             print(objl)
 
-    def do_update(self, args):
+    def do_update(self, arg):
         """A defination to update an instance based on class name & id"""
-        argl = parse(args)
+        argl = parse(arg)
         objdict = storage.all()
 
         if len(argl) == 0:
