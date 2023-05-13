@@ -7,6 +7,7 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
+    """A class to difine an hbnb command"""
     prompt = "(hbnb)"
 
     def emptyline(self):
@@ -20,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, args):
         """EOF command to  exit the program"""
         return True
-    
+
     def help_quit(self):
         """print help message to quit"""
         print("Quit command to exit the program")
@@ -30,7 +31,7 @@ class HBNBCommand(cmd.Cmd):
         print("EOF command to exit th program")
 
     def do_create(self, args):
-        """ Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id."""
+        """Create instance BaseModel, saves to JSON file & prints id."""
         if not agrs:
             print("** class name missing **")
             return
@@ -44,10 +45,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
 
-
 if __name__ == '__main__':
-<<<<<<< HEAD
     HBNBCommand().cmdloop()
-=======
-    HBNBCommand().cmdloop()                           
->>>>>>> b5440e50f90112cdf44d74b70987c310fd51693a
+    HBNBCommand().cmdloop()
