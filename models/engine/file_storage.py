@@ -2,6 +2,7 @@
 """A class to difine a File Storage class"""
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
