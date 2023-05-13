@@ -1,14 +1,19 @@
 #!/usr/bin/python3
+"""
+HBNB Console Models
+"""
 
 import cmd
 import sys
+import shlex
 from models.base_model import BaseModel
-from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """A class to difine an hbnb command"""
+    """HBNB class"""
     prompt = "(hbnb)"
+
+    classes = {'BaseModel': BaseModel}
 
     def emptyline(self):
         """shouldn’t execute anything"""
@@ -28,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_EOF(self):
         """print help message to EOF"""
-        print("EOF command to exit th program")
+        print("EOF command to exit the program")
 
     def do_create(self, args):
         """Create instance BaseModel, saves to JSON file & prints id."""
