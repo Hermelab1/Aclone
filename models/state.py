@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""Defination of state class"""
-from models.base_model import BaseModel
+"""a state model class"""
 
+from models.base_models import BaseModels
 
 class State(BaseModel):
-    """A class state have Attributes name"""
-
+    """state class detail"""
     name = ""
