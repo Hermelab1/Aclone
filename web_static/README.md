@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Air Bnb clone
-=======
 0x01. AirBnB clone - Web static
 HTML
 CSS
@@ -552,6 +549,3 @@ Repo:
 GitHub repository: AirBnB_clone
 Directory: web_static
 File: 103-index.html, styles/103-common.css, styles/103-header.css, styles/103-footer.css, styles/103-filters.css, styles/103-places.css, images/
- 
-
->>>>>>> 3c0ea79ff8fb637d062a17d13e8ebd033fac8622
